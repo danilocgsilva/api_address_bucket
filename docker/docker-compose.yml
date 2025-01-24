@@ -1,0 +1,12 @@
+services:
+  api_address_bucket:
+    build:
+      context: .
+    container_name: api_address_bucket
+    volumes:
+      - "./../:/app/"
+      - "/app/docker/"
+  api_address_bucket_database:
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=myverystrongpassword
