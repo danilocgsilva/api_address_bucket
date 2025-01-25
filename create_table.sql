@@ -1,4 +1,4 @@
-CREATE TABLE `addresses` (
+CREATE TABLE IF NOT EXISTS `addresses` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `address` CHAR(255),
     `date` DATETIME NOT NULL DEFAULT NOW(),
