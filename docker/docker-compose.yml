@@ -6,6 +6,12 @@ services:
     volumes:
       - "./../:/app/"
       - "/app/docker/"
+    ports:
+      - 3398:3306
+    environment:
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=myverystrongpassword
+      - DATABASE_HOST=api_address_bucket_database
   api_address_bucket_database:
     image: mariadb
     environment:
