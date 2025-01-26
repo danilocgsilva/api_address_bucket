@@ -18,7 +18,7 @@ class AddressRepository:
     def create(self, address):
         cursor = self.db_connection.get_cursor()
         query = f'INSERT INTO {self.table_name} (address) VALUES (%s)'
-        cursor.execute(query, (address))
+        cursor.execute(query, (address, ))
         self.db_connection.connection.commit()
 
     def update(self, address_id, address):

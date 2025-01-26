@@ -3,4 +3,4 @@ CREATE TABLE IF NOT EXISTS `addresses` (
     `address` CHAR(255),
     `date` DATETIME NOT NULL DEFAULT NOW(),
     PRIMARY KEY (`id`)
-) ENGINE=InnoDB CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

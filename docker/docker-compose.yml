@@ -12,8 +12,8 @@ services:
       - DATABASE_HOST=api_address_bucket_database
       - DATABASE_NAME=api_address_bucket
   api_address_bucket_database:
-    image: mariadb
+    image: mysql:latest
     environment:
-      - MARIADB_ROOT_PASSWORD=myverystrongpassword
+      - MYSQL_ROOT_PASSWORD=myverystrongpassword
     ports:
       - 3398:3306
