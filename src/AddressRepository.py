@@ -44,4 +44,7 @@ class AddressRepository:
         query = f'SELECT address FROM {self.table_name} WHERE address = %s'
         cursor.execute(query, (address, ))
         raw_data = cursor.fetchone()
-        return Address(raw_data["address"])
+        if raw_data:
+            return Address(raw_data["address"])
+        else:
+            return None

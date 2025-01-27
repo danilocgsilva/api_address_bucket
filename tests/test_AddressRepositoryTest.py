@@ -20,6 +20,18 @@ class AddressRepositoryTest(unittest.TestCase):
         addresses = self.addressRepository.all()
         self.assertEqual(1, len(addresses))
         
+    def test_searchByAddress(self):
+        self.resetDatabase()
+        self.addressRepository.create("http://my.api.com")
+        address = self.addressRepository.searchByAddress("http://my.api.com")
+        self.assertIsInstance(address, Address)
+        
+    def test_searchByAddressNotExisting(self):
+        self.resetDatabase()
+        self.addressRepository.create("http://my.api.com")
+        address = self.addressRepository.searchByAddress("http://non_existent_api")
+        self.assertTrue(address is None)
+        
     def resetDatabase(self):
         connection = self.builder.getConnection()
         cursor = connection.get_cursor()

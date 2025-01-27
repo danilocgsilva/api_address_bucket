@@ -1,7 +1,7 @@
 from src.Builder import Builder
 from src.Commands.CommandInterface import CommandInterface
-from src.AddressRepository import AddressRepository
 from src.Builder import Builder
+import requests
 
 class TestAddress(CommandInterface):
     def __init__(self):
@@ -11,6 +11,12 @@ class TestAddress(CommandInterface):
         print("Choose the address to test. Type the option number:")
         choosedOptionsFromUser = self.getOptionFromUser()
         print(f"You choosed the option {choosedOptionsFromUser}")
+        print("Fetching data...")
+        try:
+            requests.get(choosedOptionsFromUser)
+            print("DONE!!!")
+        except requests.exceptions.MissingSchema as e:
+            print(f"Please, verify if there's really a schema registered in the database. Is there missing the http:// in tthe choosed option: {choosedOptionsFromUser}?")
             
     def getOptionFromUser(self):
         arrayKey = 0
