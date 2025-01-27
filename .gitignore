@@ -1,3 +1,6 @@
 src/__pycache__/*
 src/Commands/__pycache__/*
 src/Models/__pycache__/*
+src/Commands/App/__pycache__/*
+src/Commands/Dev/__pycache__/*
+tests/__pycache__/*

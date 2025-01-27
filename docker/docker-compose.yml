@@ -11,6 +11,8 @@ services:
       - DATABASE_PASSWORD=myverystrongpassword
       - DATABASE_HOST=api_address_bucket_database
       - DATABASE_NAME=api_address_bucket
+      - DATABASE_NAME_TEST=api_address_bucket_test
+    working_dir: /app
   api_address_bucket_database:
     image: mysql:latest
     environment:

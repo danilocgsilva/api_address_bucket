@@ -17,7 +17,7 @@ class AddressRepository:
 
     def get_by_id(self, address_id):
         cursor = self.db_connection.get_cursor()
-        query = f'SELECT * FROM {self.table_name} WHERE id = %s'
+        query = f'SELECT address FROM {self.table_name} WHERE id = %s'
         cursor.execute(query, (address_id,))
         return cursor.fetchone()
 
@@ -36,5 +36,12 @@ class AddressRepository:
     def delete(self, address_id):
         cursor = self.db_connection.get_cursor()
         query = f'DELETE FROM {self.table_name} WHERE id = %s'
-        cursor.execute(query, (address_id,))
+        cursor.execute(query, (address_id, ))
         self.db_connection.connection.commit()
+        
+    def searchByAddress(self, address):
+        cursor = self.db_connection.get_cursor()
+        query = f'SELECT address FROM {self.table_name} WHERE address = %s'
+        cursor.execute(query, (address, ))
+        raw_data = cursor.fetchone()
+        return Address(raw_data["address"])
