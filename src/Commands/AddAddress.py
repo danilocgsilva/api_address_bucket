@@ -1,6 +1,7 @@
 from src.Builder import Builder
+from src.Commands.CommandInterface import CommandInterface
 
-class AddAddress:
+class AddAddress(CommandInterface):
     def __init__(self):
         builder = Builder()
         self.addressRepository = builder.getAddressRepository()

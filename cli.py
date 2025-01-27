@@ -1,9 +1,11 @@
 from src.Commands.AddAddress import AddAddress
 from src.Commands.ListAddresses import ListAddresses
+from src.Commands.TestAddress import TestAddress
 
 commands = {
     "add address": AddAddress(),
     "list addresses": ListAddresses(),
+    "test address": TestAddress(),
 }
 
 print("Here follows the options available:")
