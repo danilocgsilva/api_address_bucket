@@ -1,13 +1,19 @@
+from src.Models.Addess import Address
+
 class AddressRepository:
     def __init__(self, db_connection):
         self.db_connection = db_connection
         self.table_name = "addresses"
 
-    def all(self):
+    def all(self) -> list:
         cursor = self.db_connection.get_cursor()
-        query = f'SELECT * FROM {self.table_name}'
+        query = f'SELECT address FROM {self.table_name}'
         cursor.execute(query)
-        return cursor.fetchall()
+        rows = cursor.fetchall()
+        address_fetched = []
+        for row in rows:
+            address_fetched.append(Address(row["address"]))
+        return address_fetched
 
     def get_by_id(self, address_id):
         cursor = self.db_connection.get_cursor()
