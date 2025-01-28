@@ -1,4 +1,4 @@
-from src.AddressRepository import AddressRepository
+from Repositories.AddressRepository import AddressRepository
 from src.MySQLConnection import MySQLConnection
 import os
 

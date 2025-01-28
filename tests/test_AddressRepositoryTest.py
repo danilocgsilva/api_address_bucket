@@ -1,8 +1,7 @@
 from src.Models.Addess import Address
-from src.AddressRepository import AddressRepository
+from Repositories.AddressRepository import AddressRepository
 from src.Builder import Builder
 import unittest
-import os
 
 class AddressRepositoryTest(unittest.TestCase):
     def setUp(self):
